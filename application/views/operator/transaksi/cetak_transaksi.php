@@ -30,7 +30,7 @@
     }
 </style>
 <body>
-<h1 style="text-align: center;">Invoice Transaksi  </h1>       
+<h1 style="text-align: center;">.:Invoice Transaksi:.</h1>       
             <table style="" border="0" class="tabelsatu">
                 <?php 
                 $user = $this->session->userdata('username');
