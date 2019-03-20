@@ -13,6 +13,7 @@
 			$data 		 = array('id_barang'=>$idbarang['id_barang'],
 								'jumlah'=>$jumlah,
 								'harga'=>$idbarang['harga'],
+								'harga_ppn'=>$idbarang['harga_ppn'],
 								'status'=>'0');
 			$this->db->insert('detail_transaksi',$data);
 		}
@@ -30,7 +31,7 @@
 
 		function tampil_data_barang()
 		{
-			$query = "SELECT dt.id_detailtrx, dt.jumlah, dt.harga, b.nama_barang
+			$query = "SELECT dt.id_detailtrx, dt.jumlah, dt.harga, dt.harga_ppn, b.nama_barang
 			FROM detail_transaksi as dt, barang as b
 			WHERE b.id_barang=dt.id_barang and dt.status='0'";
 			return $this->db->query($query);
@@ -77,7 +78,7 @@
 		function cetak_transaksi()
 		{
 			$nmr_trx = $this->session->userdata('nomor_transaksi');
-			$query = "SELECT t.nomor_transaksi, t.tgl_transaksi, o.nama_lengkap, k.nama_kostumer, k.kontak, k.alamat, k.kode_pos, b.nama_barang, dt.jumlah, dt.harga
+			$query = "SELECT t.nomor_transaksi, t.tgl_transaksi, o.nama_lengkap, k.nama_kostumer, k.kontak, k.alamat, k.kode_pos, b.nama_barang, dt.jumlah, dt.harga, dt.harga_ppn
 			FROM transaksi as t, detail_transaksi as dt, kostumer as k, operator as o, barang as b
 			WHERE t.id_transaksi=dt.id_transaksi and t.nomor_transaksi='1'";
 			return $this->db->query($query);

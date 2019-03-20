@@ -24,7 +24,8 @@
 										<th>No</th>
 										<th>Nama</th>
 										<th>Kategori</th>
-										<th>Harga</th>
+										<th>Harga (Rp Kg/L)</th>
+										<th>Harga + PPN</th>
 										<th>Operasi</th>
 									</tr>
 								</thead>
@@ -36,6 +37,7 @@
 											<td width="150"><?php echo $r->nama_barang ?></td>
 											<td><?php echo $r->nama_kategori ?></td>
 											<td><?php echo $r->harga ?></td>
+											<td><?php echo $r->harga_ppn ?></td>
 											<td width="250">
 												<a href="<?php echo site_url('barang/ubah/'.$r->id_barang) ?>"
 												 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>

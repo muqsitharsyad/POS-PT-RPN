@@ -162,7 +162,8 @@
 								<th>No</th>
 								<th>Nama</th>
 								<th>Jumlah</th>
-								<th>Harga</th>
+								<th>Harga (Rp Kg/L)</th>
+								<th>Harga + PPN</th>
 								<th>Sub Total</th>
 								<th width="300px">Operasi</th>
 							</tr>
@@ -175,23 +176,24 @@
 											<td>$d->nama_barang</td>
 											<td>$d->jumlah</td>
 											<td>$d->harga</td>
-											<td>".$d->jumlah*$d->harga."</td>
+											<td>$d->harga_ppn</td>
+											<td>".$d->jumlah*$d->harga_ppn."</td>
 											<td>".anchor('transaksi/hapus/'.$d->id_detailtrx,'hapus')."
 											</td>
 										  </tr>";
-									$total = $total+($d->jumlah*$d->harga);
+									$total = $total+($d->jumlah*$d->harga_ppn);
 									$no++;
 								}
 							?>
 
 							<tr>
-								<td colspan="4"><p align="right">Total</p></td>
+								<td colspan="5"><p align="right">Total</p></td>
 								<td><?php echo $total;?></td>
 								<td>		
 									<!-- <a class="btn btn-info" href="<?php echo site_url('transaksi/cetak_transaksi')?>" target="_blank"><span class="fa fa-print"></span> Cetak</a>
 									<button class="btn btn-warning"><?php echo anchor('transaksi/selesai','Selesai'); ?></button>
 									 <button class="btn btn-danger"><?php echo anchor('transaksi/batal','Batal'); ?></button> -->
-									<a class="btn btn-info" href="<?php echo site_url('transaksi/cetak_transaksi')?>" target="_blank"><span class="fa fa-print"></span> Cetak</a>
+									<a class="btn btn-info" href="<?php echo site_url('transaksi/cetak_halaman')?>" target="_blank"><span class="fa fa-print"></span> Cetak</a>
 									 <a class="btn btn-success" href="<?php echo site_url('transaksi/selesai')?>"><span class="fa fa-check"></span> Selesai</a>
 									 <a class="btn btn-danger" href="<?php echo site_url('transaksi/batal')?>"><span class="fa fa-times"></span> Batal</a> 
 								</td>

@@ -21,7 +21,7 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th width="30px">No</th>
 										<th>Nama</th>
 										<th>Operasi</th>
 									</tr>

@@ -3,31 +3,19 @@
     <title>Invoice Transaksi</title>
 </head>
 <style type="text/css">
-    /*table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-    #data table, th{
-        text-align: left;
-        border: 0px;
-    }
-    table, th{
-        text-align: left;
-        border: 1px;
-    }*/
     th, td {
       padding: 5px;
       text-align: left;
     }
-    .tabeldua th {
-      text-align: left;
-      width: 120px;
-    }
     .tabelsatu th{
-        width: 115px;
+        width: 120px;
         vertical-align: top;
         height: 5px;
     }
+    .tabeldua th {
+      text-align: center;
+      width: 110px;
+    }    
 </style>
 <body>
 <h1 style="text-align: center;">.:Invoice Transaksi:.</h1>       
@@ -76,9 +64,10 @@
                         <table style="width:100%;border-collapse: collapse;" border="1 solid black" class="tabeldua">
                             <tr>
                                 <th width="50px">No</th>
-                                <th>Nama</th>
-                                <th>Jumlah</th>
-                                <th>Harga</th>
+                                <th>Nama Produk</th>
+                                <th width="50px">Jumlah</th>
+                                <th>Harga (Rp Kg/L)</th>
+                                <th>Harga + PPN</th>
                                 <th>Sub Total</th>
                             </tr>
                             <?php
@@ -90,14 +79,15 @@
                                     echo       "<td>".$d->nama_barang."</td>";
                                     echo       "<td>".$d->jumlah."</td>";
                                     echo       "<td>".$d->harga."</td>";
-                                    echo       "<td>".$d->jumlah*$d->harga."</td>";
+                                    echo       "<td>".$d->harga_ppn."</td>";
+                                    echo       "<td>".$d->jumlah*$d->harga_ppn."</td>";
                                     echo      "</tr>";
-                                    $total = $total+($d->jumlah*$d->harga);
+                                    $total = $total+($d->jumlah*$d->harga_ppn);
                                     $no++;
                                 }
                             ?>
                             <tr>
-                                <td colspan="4"><p align="right">Total</p></td>
+                                <td colspan="5"><p align="right">Total</p></td>
                                 <td><?php echo $total;?></td>
                             </tr>
                         </table>                        

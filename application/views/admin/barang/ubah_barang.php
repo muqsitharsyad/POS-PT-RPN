@@ -45,8 +45,12 @@
 							</div>							
 
 							<div class="form-group">
-								<label for="harga">Harga*</label>
+								<label for="harga">Harga (Rp Kg/L)*</label>
 								<input class="form-control type="text" name="harga" value="<?php echo $record['harga'] ?>" />
+							</div>
+							<div class="form-group">
+								<label for="harga">Harga + PPN*</label>
+								<input class="form-control type="text" name="harga_ppn" value="<?php echo $record['harga_ppn'] ?>" />
 							</div>
 							<button class="btn btn-success" type="submit" name="submit">Ubah</button>
 						</form>

@@ -44,8 +44,12 @@
 							</div>							
 
 							<div class="form-group">
-								<label for="harga">Harga*</label>
+								<label for="harga">Harga (Rp Kg/L)*</label>
 								<input class="form-control type="text" name="harga" placeholder="Harga Produk" />
+							</div>
+							<div class="form-group">
+								<label for="harga">Harga + PPN*</label>
+								<input class="form-control type="text" name="harga_ppn" placeholder="Harga + PPN" />
 							</div>
 							<button class="btn btn-success" type="submit" name="submit">Tambah</button>
 						</form>

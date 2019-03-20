@@ -79,10 +79,16 @@
 		        
 		        require_once('./assets/html2pdf/html2pdf.class.php');
 		    //$pdf = new HTML2PDF('P','A4','fr', false, 'ISO-8859-15',array(30, 0, 20, 0));
-		    $pdf = new HTML2PDF('P','A4','en',false, 'ISO-8859-15',array(30, 10, 30, 10));
+		    $pdf = new HTML2PDF('P','A4','en',false, 'ISO-8859-15',array(23, 10, 23, 10));
 		    $pdf->WriteHTML($html);
 		    $pdf->Output('Invoice.pdf', 'D');
 		  }
+
+		 function cetak_halaman(){
+		 	$data['detail'] = $this->model_transaksi->tampil_data_barang()->result();
+			$data['det_kostumer'] = $this->model_transaksi->tampil_data_detail_kostumer()->result();
+			$this->load->view('operator/transaksi/cetak_halaman', $data);
+		}
 
 		function laporan()
 		{	

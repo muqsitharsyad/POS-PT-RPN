@@ -7,7 +7,7 @@
 		
 		function tampil_data()
 		{
-			$query = "SELECT b.id_barang, b.nama_barang, b.harga, kb.nama_kategori
+			$query = "SELECT b.id_barang, b.nama_barang, b.harga, b.harga_ppn, kb.nama_kategori
 						FROM barang as b,kategori_barang as kb
 						WHERE b.id_kategori=kb.id_kategori";
 			return $this->db->query($query);
@@ -19,7 +19,8 @@
 			$nama 		= $this->input->post('nama_barang');
 			$kategori 	= $this->input->post('kategori');
 			$harga 		= $this->input->post('harga');
-			$data = array('nama_barang'=>$nama, 'id_kategori'=>$kategori, 'harga'=>$harga);
+			$harga_ppn	= $this->input->post('harga_ppn');
+			$data = array('nama_barang'=>$nama, 'id_kategori'=>$kategori, 'harga'=>$harga, 'harga_ppn'=>$harga_ppn);
 			$this->db->insert('barang',$data);
 		}
 
@@ -29,7 +30,8 @@
 			$nama 		= $this->input->post('nama_barang');
 			$kategori 	= $this->input->post('kategori');
 			$harga 		= $this->input->post('harga');
-			$data = array('nama_barang'=>$nama, 'id_kategori'=>$kategori, 'harga'=>$harga);
+			$harga_ppn	= $this->input->post('harga_ppn');
+			$data = array('nama_barang'=>$nama, 'id_kategori'=>$kategori, 'harga'=>$harga, 'harga_ppn'=>$harga_ppn);
 			$this->db->where('id_barang',$id);
 			$this->db->update('barang',$data);
 		}
