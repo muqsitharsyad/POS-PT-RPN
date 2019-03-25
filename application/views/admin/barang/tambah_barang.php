@@ -29,6 +29,21 @@
 							</div>
 
 							<div class="form-group">
+								<label for="kategori">Satuan*</label><br>
+								<a href="<?php echo site_url('satuan/tambah') ?>"><i class="fas fa-plus"></i> Tambah Satuan Baru</a><br>
+								<td>
+									<select name="satuan">
+										<?php 
+											foreach ($satuan as $s) 
+											{
+												echo "<option value='$s->id_satuan'>$s->nama_satuan</option>";
+											}
+										?>
+									</select>
+								</td>								
+							</div>
+
+							<div class="form-group">
 								<label for="kategori">Kategori*</label><br>
 								<a href="<?php echo site_url('kategori/tambah') ?>"><i class="fas fa-plus"></i> Tambah Kategori Baru</a><br>
 								<td>
@@ -41,10 +56,10 @@
 										?>
 									</select>
 								</td>								
-							</div>							
+							</div>						
 
 							<div class="form-group">
-								<label for="harga">Harga (Rp Kg/L)*</label>
+								<label for="harga">Harga*</label>
 								<input class="form-control type="text" name="harga" placeholder="Harga Produk" />
 							</div>
 							<div class="form-group">

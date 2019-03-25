@@ -8,6 +8,7 @@
 		{
 			parent::__construct();
 			$this->load->model(array('model_barang','model_transaksi','model_kostumer'));
+			cek_session();
 		}
 
 		function index()

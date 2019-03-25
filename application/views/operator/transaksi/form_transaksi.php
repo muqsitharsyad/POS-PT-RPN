@@ -137,6 +137,7 @@
 							<tr>
 								<th>No</th>
 								<th>Nama</th>
+								<th>Satuan</th>
 								<th>Jumlah</th>
 								<th>Harga (Rp Kg/L)</th>
 								<th>Harga + PPN</th>
@@ -150,6 +151,7 @@
 									echo "<tr>
 											<td>$no</td>
 											<td>$d->nama_barang</td>
+											<td>$d->nama_satuan</td>
 											<td>$d->jumlah</td>
 											<td>$d->harga</td>
 											<td>$d->harga_ppn</td>
@@ -161,7 +163,7 @@
 								}
 							?>
 							<tr>
-								<td colspan="5"><p align="right">Total</p></td>
+								<td colspan="6"><p align="right">Total</p></td>
 								<td><?php echo $total;?></td>
 								<td>
 								</td>

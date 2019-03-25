@@ -2,10 +2,11 @@
 <head>
     <title>Invoice Transaksi</title>
     <?php $this->load->view("operator/_partials/head.php") ?>
+    <?php $this->load->view("operator/_partials/kop_surat.php") ?>
 </head>
 <body>
-<h1 style="text-align: center;">.:Invoice Transaksi:.</h1>       
-            <div class="card mb-3">
+<h3 style="text-align: center;">.:Invoice Transaksi:.</h3>       
+            <div class="">
                     <div class="card-body">
                         
                         <table width="100%" border="0">
@@ -52,9 +53,10 @@
                         </table>
                         <p></p>
                         <table class="table table-bordered" width="100%" cellspacing="0">
-                            <tr>
+                            <tr align="center">
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th>Nama Produk</th>
+                                <th>Satuan</th>
                                 <th>Jumlah</th>
                                 <th>Harga (Rp Kg/L)</th>
                                 <th>Harga + PPN</th>
@@ -67,6 +69,7 @@
                                     echo "<tr>
                                             <td>$no</td>
                                             <td>$d->nama_barang</td>
+                                            <td>$d->nama_satuan</td>
                                             <td>$d->jumlah</td>
                                             <td>$d->harga</td>
                                             <td>$d->harga_ppn</td>
@@ -78,7 +81,7 @@
                                 }
                             ?>
                             <tr>
-                                <td colspan="5"><p align="right">Total</p></td>
+                                <td colspan="6"><p align="right">Total</p></td>
                                 <td><?php echo $total;?></td>
                             </tr>
                         </table>

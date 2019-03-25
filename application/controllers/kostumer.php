@@ -8,6 +8,7 @@
 		{
 			parent::__construct();
 			$this->load->model('model_kostumer');
+			cek_session();
 		}
 		
 		function index()

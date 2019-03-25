@@ -40,7 +40,7 @@
                 <i class="fas fa-user-circle fa-fw"></i> <?php  echo $user; ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?php echo site_url('otentikasi/login') ?>" d>Logout</a>
+                <a class="dropdown-item" href="<?php echo site_url('otentikasi/logout') ?>" d>Logout</a>
             </div>
         </li>
     </ul>

@@ -14,36 +14,28 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('barang/tambah') ?>"><i class="fas fa-plus"></i> Tambah Data Baru</a>
+						<a href="<?php echo site_url('satuan/tambah') ?>"><i class="fas fa-plus"></i> Tambah Data Baru</a>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th width="30px">No</th>
 										<th>Nama</th>
-										<th>Satuan</th>
-										<th>Kategori</th>
-										<th>Harga</th>
-										<th>Harga + PPN</th>
 										<th>Operasi</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php $no = 1?>
-									<?php foreach ($record as $r): ?>
+									<?php foreach ($record->result() as $r): ?>
 										<tr>
 											<td><?php echo $no ?></td>
-											<td width="150"><?php echo $r->nama_barang ?></td>
-											<td><?php echo $r->nama_satuan ?></td>
-											<td><?php echo $r->nama_kategori ?></td>
-											<td><?php echo $r->harga ?></td>
-											<td><?php echo $r->harga_ppn ?></td>
+											<td width="150"><?php echo $r->nama_satuan ?></td>
 											<td width="250">
-												<a href="<?php echo site_url('barang/ubah/'.$r->id_barang) ?>"
+												<a href="<?php echo site_url('satuan/ubah/'.$r->id_satuan) ?>"
 												 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('barang/hapus/'.$r->id_barang) ?>')"
+												<a onclick="deleteConfirm('<?php echo site_url('satuan/hapus/'.$r->id_satuan) ?>')"
 												 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>

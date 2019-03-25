@@ -31,9 +31,9 @@
 
 		function tampil_data_barang()
 		{
-			$query = "SELECT dt.id_detailtrx, dt.jumlah, dt.harga, dt.harga_ppn, b.nama_barang
-			FROM detail_transaksi as dt, barang as b
-			WHERE b.id_barang=dt.id_barang and dt.status='0'";
+			$query = "SELECT dt.id_detailtrx, dt.jumlah, dt.harga, dt.harga_ppn, b.nama_barang, sb.nama_satuan
+			FROM detail_transaksi as dt, barang as b, satuan_barang as sb
+			WHERE b.id_barang=dt.id_barang and b.id_satuan=sb.id_satuan and dt.status='0'";
 			return $this->db->query($query);
 		}
 

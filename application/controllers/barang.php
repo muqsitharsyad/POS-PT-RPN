@@ -25,8 +25,9 @@
 			}
 			else
 			{
-				$this->load->model('model_kategori');
+				$this->load->model(array('model_kategori','model_satuan'));
 				$data['kategori'] = $this->model_kategori->tampil_data()->result();
+				$data['satuan'] = $this->model_satuan->tampil_data()->result();
 				$this->load->view('admin/barang/tambah_barang',$data);
 			}
 		}
@@ -41,8 +42,9 @@
 			else
 			{
 				$id = $this->uri->segment(3);
-				$this->load->model('model_kategori');
+				$this->load->model(array('model_kategori','model_satuan'));
 				$data['kategori'] = $this->model_kategori->tampil_data()->result();
+				$data['satuan'] = $this->model_satuan->tampil_data()->result();
 				$data['record'] = $this->model_barang->get_one($id)->row_array();
 				$this->load->view('admin/barang/ubah_barang',$data);
 			}

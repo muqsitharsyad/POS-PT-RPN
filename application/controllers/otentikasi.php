@@ -34,6 +34,7 @@
 			}
 			else
 			{
+				cek_session_login();
 				$this->load->view('form_login');
 			}			
 		}
