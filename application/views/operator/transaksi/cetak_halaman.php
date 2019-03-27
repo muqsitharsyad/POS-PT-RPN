@@ -16,28 +16,28 @@
                             foreach ($det_kostumer as $dt) {
                                 echo "
                                         <tr>
-                                            <th width='200px'>Nomor Transaksi </th>
+                                            <th width='150px'>Nomor Transaksi </th>
                                             <th>:</th>
-                                            <th width='200px'>$dt->nomor_transaksi</th>
+                                            <th width='150px'>$dt->nomor_transaksi</th>
                                             <th>Kostumer </th>
                                             <th>:</th>
-                                            <th width='300px'>$dt->nama_kostumer</th>
+                                            <th width='200px'>$dt->nama_kostumer</th>
                                         </tr>
                                         <tr>
-                                            <th width='200px'>Tanggal Transaksi </th>
+                                            <th width='150px'>Tanggal Transaksi </th>
                                             <th>:</th>
-                                            <th width='200px'> $tgl</th>
+                                            <th width='150px'> $tgl</th>
                                             <th>Kontak </th>
                                             <th>:</th>
-                                            <th width='300px'> $dt->kontak</th>
+                                            <th width='200px'> $dt->kontak</th>
                                         </tr>
                                         <tr>
-                                            <th width='200px'>Operator  </th>
+                                            <th width='150px'>Operator  </th>
                                             <th>:</th>
-                                            <th width='200px'>$user</th>
+                                            <th width='150px'>$user</th>
                                             <th>Alamat</th>
                                             <th>:</th>
-                                            <th width='500px'>$dt->alamat</th>
+                                            <th width='200px'>$dt->alamat</th>
                                         </tr>
                                         <tr>
                                             <th></th>
@@ -45,13 +45,12 @@
                                             <th></th>
                                             <th>Kode Pos</th>
                                             <th>:</th>
-                                            <th width='300px'> $dt->kode_pos</th>
+                                            <th width='200px'> $dt->kode_pos</th>
                                         </tr>";
                             }                           
                         ?>
-
                         </table>
-                        <p></p>
+                        <br>
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <tr align="center">
                                 <th>No</th>

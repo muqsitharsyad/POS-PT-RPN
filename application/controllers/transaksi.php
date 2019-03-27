@@ -85,6 +85,15 @@
 		    $pdf->Output('Invoice.pdf', 'D');
 		  }
 
+		  public function cetak_transaksi2(){
+		  	$data['detail'] = $this->model_transaksi->tampil_data_barang()->result();
+			$data['det_kostumer'] = $this->model_transaksi->tampil_data_detail_kostumer()->result();
+			$this->load->library('pdf');
+		    $this->pdf->setPaper('A4', 'potrait');
+		    $this->pdf->filename = "Invoice.pdf";
+		    $this->pdf->load_view('operator/transaksi/cetak_halaman', $data);
+		  }
+
 		 function cetak_halaman(){
 		 	$data['detail'] = $this->model_transaksi->tampil_data_barang()->result();
 			$data['det_kostumer'] = $this->model_transaksi->tampil_data_detail_kostumer()->result();

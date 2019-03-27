@@ -195,7 +195,7 @@
 									<!-- <a class="btn btn-info" href="<?php echo site_url('transaksi/cetak_transaksi')?>" target="_blank"><span class="fa fa-print"></span> Cetak</a>
 									<button class="btn btn-warning"><?php echo anchor('transaksi/selesai','Selesai'); ?></button>
 									 <button class="btn btn-danger"><?php echo anchor('transaksi/batal','Batal'); ?></button> -->
-									<a class="btn btn-info" href="<?php echo site_url('transaksi/cetak_halaman')?>" target="_blank"><span class="fa fa-print"></span> Cetak</a>
+									<a class="btn btn-info" href="<?php echo site_url('transaksi/cetak_transaksi2')?>" target="_blank"><span class="fa fa-print"></span> Cetak</a>
 									 <a class="btn btn-success" href="<?php echo site_url('transaksi/selesai')?>"><span class="fa fa-check"></span> Selesai</a>
 									 <a class="btn btn-danger" href="<?php echo site_url('transaksi/batal')?>"><span class="fa fa-times"></span> Batal</a> 
 								</td>

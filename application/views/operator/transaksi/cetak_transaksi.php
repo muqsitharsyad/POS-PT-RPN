@@ -1,6 +1,8 @@
 <html>
 <head>
     <title>Invoice Transaksi</title>
+    
+    <?php $this->load->view("operator/_partials/kop_surat.php") ?>
 </head>
 <style type="text/css">
     th, td {
