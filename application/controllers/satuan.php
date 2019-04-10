@@ -14,7 +14,6 @@
 		{
 			$data['record'] = $this->model_satuan->tampil_data();
 			$this->load->view('admin/satuan/daftar_satuan',$data);
-			//$this->template->load('template','kategori/lihat_data',$data);
 		}
 
 		function tambah()

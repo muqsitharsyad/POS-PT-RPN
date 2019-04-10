@@ -12,13 +12,29 @@
 
 		function tambah_data()
 		{
-			$data = array('nama_cabang'=> $this->input->post('cabang'));
+			$nama = $this->input->post('nama_cabang');
+			$alamat = $this->input->post('alamat');
+			$no_telp = $this->input->post('no_telp');
+			$fax = $this->input->post('fax');
+			$email = $this->input->post('email');
+			$web = $this->input->post('web');
+			$rek = $this->input->post('rek');
+			$no_rek = $this->input->post('no_rek');
+			$data = array('nama_cabang'=> $nama, 'alamat'=> $alamat, 'no_telp'=> $no_telp, 'fax'=>$fax, 'email'=>$email, 'website'=>$web, 'rekening'=>$rek, 'no_rek'=>$no_rek);
 			$this->db->insert('cabang_organisasi',$data);
 		}
 
 		function ubah_data()
 		{
-			$data = array('nama_cabang'=> $this->input->post('cabang'));
+			$nama = $this->input->post('nama');
+			$alamat = $this->input->post('alamat');
+			$no_telp = $this->input->post('no_telp');
+			$fax = $this->input->post('fax');
+			$email = $this->input->post('email');
+			$web = $this->input->post('web');
+			$rek = $this->input->post('rek');
+			$no_rek = $this->input->post('no_rek');
+			$data = array('nama_cabang'=> $nama, 'alamat'=> $alamat, 'no_telp'=> $no_telp, 'fax'=>$fax, 'email'=>$email, 'website'=>$web, 'rekening'=>$rek, 'no_rek'=>$no_rek);
 			$this->db->where('id_cabang', $this->input->post('id'));
 			$this->db->update('cabang_organisasi',$data);
 		}

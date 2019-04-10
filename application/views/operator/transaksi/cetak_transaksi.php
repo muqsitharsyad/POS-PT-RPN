@@ -82,9 +82,9 @@
                                     echo       "<td>".$d->nama_barang."</td>";
                                     echo       "<td>".$d->nama_satuan."</td>";
                                     echo       "<td>".$d->jumlah."</td>";
-                                    echo       "<td>".$d->harga."</td>";
-                                    echo       "<td>".$d->harga_ppn."</td>";
-                                    echo       "<td>".$d->jumlah*$d->harga_ppn."</td>";
+                                    echo       "<td>".number_format($d->harga)."</td>";
+                                    echo       "<td>".number_format($d->harga_ppn)."</td>";
+                                    echo       "<td>".number_format($d->jumlah*$d->harga_ppn)."</td>";
                                     echo      "</tr>";
                                     $total = $total+($d->jumlah*$d->harga_ppn);
                                     $no++;
@@ -92,7 +92,7 @@
                             ?>
                             <tr>
                                 <td colspan="6"><p align="right">Total</p></td>
-                                <td><?php echo $total;?></td>
+                                <td><?php echo number_format($total);?></td>
                             </tr>
                         </table>                        
 </body>

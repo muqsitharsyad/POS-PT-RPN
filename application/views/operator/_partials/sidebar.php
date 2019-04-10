@@ -17,4 +17,9 @@
             <a class="dropdown-item" href="<?php echo site_url('kostumer') ?>">Daftar</a>
         </div>
     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('transaksi/laporan_operator') ?>">
+            <i class="fas fa-fw fa-receipt"></i>
+            <span>Daftar Transaksi</span></a>
+    </li>
 </ul>

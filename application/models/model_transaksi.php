@@ -29,11 +29,29 @@
 			$this->db->insert('transaksi',$data);
 		}
 
+		function simpan_data_bayar()
+		{
+			$bayar = $this->input->post('bayar');
+			$user = $this->session->userdata('username');
+			$id_op = $this->db->get_where('operator',array('username'=>$user))->row_array();
+			$data = array('id_operator'=>$id_op['id_operator'],'status_bayar'=>$bayar);			
+			$this->db->where('status =',0,FALSE);
+			$this->db->update('transaksi',$data);
+		}
+
 		function tampil_data_barang()
 		{
 			$query = "SELECT dt.id_detailtrx, dt.jumlah, dt.harga, dt.harga_ppn, b.nama_barang, sb.nama_satuan
 			FROM detail_transaksi as dt, barang as b, satuan_barang as sb
 			WHERE b.id_barang=dt.id_barang and b.id_satuan=sb.id_satuan and dt.status='0'";
+			return $this->db->query($query);
+		}
+
+		function tampil_data_barang_laporan($trx)
+		{
+			$query = "SELECT dt.id_detailtrx, dt.jumlah, dt.harga, dt.harga_ppn, b.nama_barang, sb.nama_satuan
+			FROM detail_transaksi as dt, barang as b, satuan_barang as sb, transaksi as t
+			WHERE b.id_barang=dt.id_barang and b.id_satuan=sb.id_satuan and t.id_transaksi=dt.id_transaksi and t.nomor_transaksi='$trx'";
 			return $this->db->query($query);
 		}
 
@@ -49,6 +67,38 @@
 			$query = "SELECT t.nomor_transaksi, t.tgl_transaksi,k.nama_kostumer,k.kontak,k.alamat,k.kode_pos
 			FROM transaksi as t, kostumer as k
 			WHERE t.id_kostumer=k.id_kostumer and t.status='0'";
+			return $this->db->query($query);
+		}
+
+		function tampil_data_detail_kostumer_laporan($trx)
+		{
+			$query = "SELECT t.nomor_transaksi, t.tgl_transaksi,k.nama_kostumer,k.kontak,k.alamat,k.kode_pos
+			FROM transaksi as t, kostumer as k
+			WHERE t.id_kostumer=k.id_kostumer and t.nomor_transaksi='$trx'";
+			return $this->db->query($query);
+		}
+
+		function tampil_data_trx()
+		{
+			$query = "SELECT t.status_bayar, c.nama_cabang, c.rekening, c.no_rek
+			FROM transaksi as t, operator as o, cabang_organisasi as c
+			WHERE t.id_operator=o.id_operator and o.id_cabang=c.id_cabang and t.status='0'";
+			return $this->db->query($query);
+		}
+
+		function tampil_data_trx_cetak()
+		{
+			$query = "SELECT t.status_bayar, c.nama_cabang, c.rekening, c.no_rek
+			FROM transaksi as t, operator as o, cabang_organisasi as c
+			WHERE t.id_operator=o.id_operator and o.id_cabang=c.id_cabang and t.status='0'";
+			return $this->db->query($query);
+		}
+
+		function tampil_data_trx_laporan($trx)
+		{
+			$query = "SELECT t.status_bayar, c.rekening, c.no_rek
+			FROM transaksi as t, operator as o, cabang_organisasi as c
+			WHERE t.id_operator=o.id_operator and o.id_cabang=c.id_cabang and t.nomor_transaksi='$trx'";
 			return $this->db->query($query);
 		}
 
@@ -86,11 +136,36 @@
 
 		function laporan_default()
 		{
-			$query = "SELECT t.tgl_transaksi, o.nama_lengkap, sum(dt.harga*dt.jumlah) as total, c.nama_cabang
+			$query = "SELECT t.tgl_transaksi, t.nomor_transaksi, o.nama_lengkap, sum(dt.harga_ppn*dt.jumlah) as total, c.nama_cabang
 			FROM transaksi as t, detail_transaksi as dt, operator as o, cabang_organisasi as c
 			WHERE dt.id_transaksi=t.id_transaksi and o.id_operator=t.id_operator and c.id_cabang=o.id_cabang
 			group by t.id_transaksi";
 			return $this->db->query($query);
+		}
+
+		function laporan_periode($tgl1,$tgl2)
+		{
+			$query = "SELECT t.tgl_transaksi, t.nomor_transaksi, t.status_bayar, o.nama_lengkap, sum(dt.harga_ppn*dt.jumlah) as total, c.nama_cabang
+			FROM transaksi as t, detail_transaksi as dt, operator as o, cabang_organisasi as c
+			WHERE dt.id_transaksi=t.id_transaksi and o.id_operator=t.id_operator and c.id_cabang=o.id_cabang and t.tgl_transaksi between '$tgl1' and '$tgl2'
+			group by t.id_transaksi";
+			return $this->db->query($query);
+		}
+
+		function laporan_operator()
+		{
+			$user = $this->session->userdata('username');
+			$query = "SELECT t.tgl_transaksi, t.nomor_transaksi, t.status_bayar, o.username, sum(dt.harga_ppn*dt.jumlah) as total
+			FROM transaksi as t, detail_transaksi as dt, operator as o
+			WHERE dt.id_transaksi=t.id_transaksi and o.id_operator=t.id_operator and o.username='$user'
+			group by t.id_transaksi";
+			return $this->db->query($query);
+		}
+
+		function get_one($id)
+		{
+			$param = array('nomor_transaksi'=>$id);
+			return $this->db->get_where('transaksi',$param);
 		}
 	}
 ?>

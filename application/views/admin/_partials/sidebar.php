@@ -62,8 +62,8 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Transaksi</span></a>
+        <a class="nav-link" href="<?php echo site_url('transaksi/laporan') ?>">
+            <i class="fas fa-fw fa-receipt"></i>
+            <span>Daftar Transaksi</span></a>
     </li>
 </ul>

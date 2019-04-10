@@ -3,7 +3,7 @@
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
-<body id="page-top">
+<body id="page-top" onload="setInterval('displayServerTime()', 1000);">
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
@@ -30,7 +30,17 @@
 
 							<div class="form-group">
 								<label for="satuan">Satuan*</label><br>
-								<td>
+								<input list="satuan" name="satuan" class="form-control" value="<?php echo $record['id_satuan'] ?>">
+								<datalist id="satuan">
+										<?php
+											foreach ($satuan->result() as $s) {
+												echo "<option value='$s->id_satuan'";
+												echo $record['id_satuan']==$s->id_satuan?'selected':'';
+												echo">$s->nama_satuan</option>";
+											}
+										 ?>
+								</datalist>	
+								<!-- <td>
 									<select name="satuan">
 										<?php 
 											foreach ($satuan as $s) 
@@ -41,23 +51,21 @@
 											}
 										?>
 									</select>
-								</td>								
+								</td> -->								
 							</div>	
 
 							<div class="form-group">
 								<label for="kategori">Kategori*</label><br>
-								<td>
-									<select name="kategori">
-										<?php 
-											foreach ($kategori as $k) 
-											{
+								<input list="kategori" name="kategori" class="form-control" value="<?php echo $record['id_kategori'] ?>">
+								<datalist id="kategori">
+										<?php
+											foreach ($kategori->result() as $k) {
 												echo "<option value='$k->id_kategori'";
 												echo $record['id_kategori']==$k->id_kategori?'selected':'';
 												echo">$k->nama_kategori</option>";
 											}
-										?>
-									</select>
-								</td>								
+										 ?>
+								</datalist>								
 							</div>							
 
 							<div class="form-group">

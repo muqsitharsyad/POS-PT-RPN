@@ -3,7 +3,7 @@
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
-<body id="page-top">
+<body id="page-top" onload="setInterval('displayServerTime()', 1000);">
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
@@ -35,18 +35,18 @@
 
 							<div class="form-group">
 								<label for="cabang">Cabang*</label><br>
-								<td>
-									<select name="cabang">
-										<?php 
-											foreach ($cabang as $c) 
-											{
+								<div class="form-group">
+				                    <input list="cabang" name="cabang" class="form-control" value="<?php echo $record['id_cabang'] ?>">
+				                </div>
+								<datalist id="cabang">
+										<?php
+											foreach ($cabang->result() as $c) {
 												echo "<option value='$c->id_cabang'";
 												echo $record['id_cabang']==$c->id_cabang?'selected':'';
 												echo">$c->nama_cabang</option>";
 											}
-										?>
-									</select>
-								</td>								
+										 ?>
+								</datalist>									
 							</div>	
 
 							<div class="form-group">

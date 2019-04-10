@@ -3,7 +3,7 @@
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
-<body id="page-top">
+<body id="page-top" onload="setInterval('displayServerTime()', 1000);">
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
@@ -31,22 +31,32 @@
 							<div class="form-group">
 								<label for="kategori">Satuan*</label><br>
 								<a href="<?php echo site_url('satuan/tambah') ?>"><i class="fas fa-plus"></i> Tambah Satuan Baru</a><br>
-								<td>
-									<select name="satuan">
-										<?php 
-											foreach ($satuan as $s) 
-											{
+								<div class="form-group">
+				                    <input list="satuan" name="satuan" class="form-control" placeholder="Satuan" >
+				                </div>
+								<datalist id="satuan">
+										<?php
+											foreach ($satuan->result() as $s) {
 												echo "<option value='$s->id_satuan'>$s->nama_satuan</option>";
 											}
-										?>
-									</select>
-								</td>								
+										 ?>
+								</datalist>									
 							</div>
 
 							<div class="form-group">
 								<label for="kategori">Kategori*</label><br>
 								<a href="<?php echo site_url('kategori/tambah') ?>"><i class="fas fa-plus"></i> Tambah Kategori Baru</a><br>
-								<td>
+								<div class="form-group">
+				                    <input list="kategori" name="kategori" class="form-control" placeholder="Nama Kategori" >
+				                </div>
+								<datalist id="kategori">
+										<?php
+											foreach ($kategori->result() as $k) {
+												echo "<option value='$k->id_kategori'>$k->nama_kategori</option>";
+											}
+										 ?>
+								</datalist>	
+								<!-- <td>
 									<select name="kategori">
 										<?php 
 											foreach ($kategori as $k) 
@@ -55,7 +65,7 @@
 											}
 										?>
 									</select>
-								</td>								
+								</td> -->								
 							</div>						
 
 							<div class="form-group">
@@ -77,6 +87,13 @@
 
 				<!-- Sticky Footer-->
 				<?php $this->load->view('admin/_partials/footer.php') ?>
+				<datalist id="satuan">
+					<?php
+						foreach ($satuan->result() as $s) {
+							echo "<option value='$s->nama_satuan'></option>";
+						}
+					?>
+				</datalist>
 			</div>
 			<!-- /.content-wrapper-->
 		</div>

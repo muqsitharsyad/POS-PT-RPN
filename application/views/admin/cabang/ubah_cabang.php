@@ -3,7 +3,7 @@
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
-<body id="page-top">
+<body id="page-top" onload="setInterval('displayServerTime()', 1000);">
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
@@ -25,7 +25,35 @@
 							<input type="hidden" name="id" value="<?php echo $record['id_cabang'] ?>">
 							<div class="form-group">
 								<label for="nama">Nama Cabang*</label>
-								<input class="form-control type="text" name="cabang" value="<?php echo $record['nama_cabang']?>" />
+								<input class="form-control type="text" name="nama" value="<?php echo $record['nama_cabang']?>" />
+							</div>
+							<div class="form-group">
+								<label for="nama">Alamat*</label>
+								<input class="form-control type="text" name="alamat" value="<?php echo $record['alamat']?>"/>
+							</div>
+							<div class="form-group">
+								<label for="nama">Nomor Telepon*</label>
+								<input class="form-control type="text" name="no_telp" value="<?php echo $record['no_telp']?>"/>
+							</div>
+							<div class="form-group">
+								<label for="nama">Fax*</label>
+								<input class="form-control type="text" name="fax" value="<?php echo $record['fax']?>"/>
+							</div>
+							<div class="form-group">
+								<label for="nama">E-mail*</label>
+								<input class="form-control type="text" name="email" value="<?php echo $record['email']?>"/>
+							</div>
+							<div class="form-group">
+								<label for="nama">Website*</label>
+								<input class="form-control type="text" name="web" value="<?php echo $record['website']?>"/>
+							</div>
+							<div class="form-group">
+								<label for="nama">Rekening*</label>
+								<input class="form-control type="text" name="rek" value="<?php echo $record['rekening']?>"/>
+							</div>
+							<div class="form-group">
+								<label for="nama">Nomor Rekening*</label>
+								<input class="form-control type="text" name="no_rek" value="<?php echo $record['no_rek']?>"/>
 							</div>
 
 							<button class="btn btn-success" type="submit" name="submit">Ubah</button>

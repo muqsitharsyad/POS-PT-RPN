@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Invoice Transaksi</title>    
+    <title>Invoice Transaksi</title>
     <?php $this->load->view("operator/_partials/head.php") ?>
     <?php foreach ($op as $o) {
         if ($o->nama_cabang == "Pusat Penelitian Bioteknologi dan Bioindustri Indonesia") 
@@ -44,8 +44,7 @@
     }
 </style>
 <body>
-<h4 style="text-align: center;">.: Invoice Transaksi :.</h4>   
-
+<h4 style="text-align: center;">.: Invoice Transaksi :.</h4>       
             <div class="" >
                     <div class="card-body">
                         
@@ -66,7 +65,7 @@
                                         <tr>
                                             <th width='150px'>Tanggal Transaksi </th>
                                             <th>:</th>
-                                            <th width='150px'> $tgl</th>
+                                            <th width='150px'>$dt->tgl_transaksi</th>
                                             <th>Kontak </th>
                                             <th>:</th>
                                             <th width='200px'> $dt->kontak</th>
@@ -105,7 +104,7 @@
                                 $no=1;
                                 $total=0;
                                 foreach ($detail as $d) {
-                                    echo "<tr style:text-align=right;>
+                                    echo "<tr>
                                             <td>$no</td>
                                             <td>$d->nama_barang</td>
                                             <td>$d->nama_satuan</td>
@@ -144,8 +143,7 @@
                                         echo "<tr>
                                                 <th>Status Pembayaran : $t->status_bayar</th>
                                               </tr>";
-                                    }  
-                                    echo $t->nama_cabang;                                 
+                                    }                                   
                                 }                               
                                                             
                                 ?>

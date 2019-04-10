@@ -3,7 +3,7 @@
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
-<body id="page-top">
+<body id="page-top" onload="setInterval('displayServerTime()', 1000);">
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
@@ -21,8 +21,15 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th width="10px">No</th>
 										<th>Nama</th>
+										<th>Alamat</th>
+										<th>Telepon</th>
+										<th>Fax</th>
+										<th>E-mail</th>
+										<th>Website</th>
+										<th>Rekening</th>
+										<th>No Rek</th>
 										<th>Operasi</th>
 									</tr>
 								</thead>
@@ -31,8 +38,15 @@
 									<?php foreach ($record->result() as $r): ?>
 										<tr>
 											<td><?php echo $no ?></td>
-											<td width="150"><?php echo $r->nama_cabang ?></td>
-											<td width="250">
+											<td><?php echo $r->nama_cabang ?></td>
+											<td><?php echo $r->alamat ?></td>
+											<td><?php echo $r->no_telp ?></td>
+											<td><?php echo $r->fax ?></td>
+											<td><?php echo $r->email ?></td>
+											<td><?php echo $r->website ?></td>
+											<td><?php echo $r->rekening ?></td>
+											<td><?php echo $r->no_rek ?></td>
+											<td>
 												<a href="<?php echo site_url('cabang/ubah/'.$r->id_cabang) ?>"
 												 class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
 												<a onclick="deleteConfirm('<?php echo site_url('cabang/hapus/'.$r->id_cabang) ?>')"

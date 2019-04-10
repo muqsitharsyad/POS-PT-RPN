@@ -26,7 +26,7 @@
 			else
 			{
 				$this->load->model('model_cabang');
-				$data['kategori'] = $this->model_cabang->tampil_data()->result();
+				$data['cabang'] = $this->model_cabang->tampil_data();
 				$this->load->view('admin/operator/tambah_operator',$data);
 			}
 		}
@@ -42,7 +42,7 @@
 			{
 				$id = $this->uri->segment(3);
 				$this->load->model('model_cabang');
-				$data['cabang'] = $this->model_cabang->tampil_data()->result();
+				$data['cabang'] = $this->model_cabang->tampil_data();
 				$data['record'] = $this->model_operator->get_one($id)->row_array();
 				$this->load->view('admin/operator/ubah_operator',$data);
 			}
